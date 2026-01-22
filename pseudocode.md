@@ -1,61 +1,14 @@
-let box = 0;
-
-const squares = function squares() {
-    for (let i =0; i < 100; i++) {
-        let userInput = prompt ('Insert a number.')
-        userInput = '';
-        if (userInput === 0) {
-            return;
-        } else if (userInput <= 100)
-            box++;
-            return;
-    };
-}
-console.log(squares());
-
-const container = document.querySelector('#container');
-const containerSize = 800;
-
-function createGrid (size) {
-    const squareSize = containerSize / size;
-    for (let i =0; i < size * size; i++) {
-        const square = document.createElement('div');
-        square.classList.add('squares')
-
-        square.style.width = `${squareSize}px`;
-        square.style.height = `${squareSize}px`;
-        
-    };
-    container.appendChild(square);
-}
-
-const container = document.querySelector('#container');
-
-function createGrid (size) {
-container.innerHTML = '';
-const squareSize = 960 / size;
-const square = document.createElement ('div');
-for (let i = 0; i < size * size; i++) {
-    const square = document.createElement('div');
-    square.classList.add ('square');
-    square.addEventListener ('mouseover', ()=> {
-        square.style.backgroundColor = 'orange';
-        square.style.height = `${squareSize}px`;
-        square.style.width = `${squareSize}`
-    });
-    container.appendChild (square)
-}
-}
-// The number 256 is the result of 16*16.
-
-const popBtn = document.querySelector ('button');
-popBtn.addEventListener ('click', () => {
-    let size = Number( prompt ('Choose a number between 1 to 100'));
-    if (size < 100) {
-        return size=100
-    }
-    if (size < 1) {
-        return NaN;
-    }
-    createGrid (16);
-});
+Create an id container in HTML.
+Select that container in JS.
+First, create one square inside the container.
+Create multiple squares (16*16 =256) by invkoing a for loop.
+Set up the squares by having a class in CSS through flex.
+In container CSS, use flex-wrap to wrap the squares in the container.
+Invoke a function createGrid with parameter size that and set the container inner HTML to '' of grid removal.
+Determine the size of the square by dividing the total size 960 with the parameter size.
+That will set different amount squares with leaving any space.
+Invoke a for loop and remember, in condition size*size is the parameter variable set to determine height and width of the square.
+Call the squareSize variable in style to determine width and height of the square.
+create hover functions.
+Add reset buttion on top of the container.
+Invoke a function for randomColor.

@@ -1,9 +1,9 @@
 const container = document.querySelector('#container');
 
 function randomColor () {
-    return Math.floor(Math.random() * 360);
+    return Math.floor(Math.random() * 256);
 }
-// Element for new square.
+
 function createGrid (size) {
 
 container.innerHTML = '';
@@ -16,14 +16,15 @@ square.style.height = `${squareSize}px`;
 square.style.width = `${squareSize}px`;
 
 square.addEventListener('mouseover', () => {
-     square.style.backgroundColor = `hsl(${randomColor()}, 100%, 50%)`;
+     square.style.backgroundColor = `rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`;
+     square.style.opacity = '1';
+     square.style.transition = '10s';
 });
 square.addEventListener ('mouseout', () => {
     square.style.backgroundColor = 'white';
 })
 container.appendChild(square)
 }
-
 
 }
 
@@ -32,8 +33,8 @@ container.appendChild(square)
         let size = Number (prompt('Choose a number between 1 and 100'));
         if (size > 100) {
             return size = 100;
-        } else if (size < 1 || isNaN (size)) {
-            return 
+        } else if (size < 1) {
+            return;
         }
         createGrid(size);
     });
